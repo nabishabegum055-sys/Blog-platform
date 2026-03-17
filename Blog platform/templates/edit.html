@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="col-md-6 mx-auto">
+<div class="card p-4 shadow">
+
+<h3>Edit Blog</h3>
+
+<form method="POST">
+<input class="form-control mb-3" name="title" value="{{post.title}}">
+<input class="form-control mb-3" name="image" value="{{post.image}}">
+<textarea class="form-control mb-3" name="content">{{post.content}}</textarea>
+<button class="btn btn-success w-100">Update</button>
+</form>
+
+</div>
+</div>
+
+{% endblock %}

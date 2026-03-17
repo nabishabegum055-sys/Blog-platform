@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="col-md-8 mx-auto">
+
+<div class="card shadow mb-4">
+
+<img src="{{post.image}}" class="card-img-top">
+
+<div class="card-body">
+<h2>{{post.title}}</h2>
+<p>{{post.content}}</p>
+<p>❤️ {{post.likes}}</p>
+</div>
+
+</div>
+
+<div class="card p-3 shadow">
+
+<h4>Comments</h4>
+
+{% for c in post.comments %}
+
+<div class="d-flex mb-3">
+
+<img src="https://ui-avatars.com/api/?name={{c.user}}" width="40" class="me-2 rounded-circle">
+
+<div>
+<strong>{{c.user}}</strong>
+<small>{{c.time}}</small>
+
+<div class="comment-box">
+{{c.text}}
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+<form method="POST">
+<input class="form-control mb-2" name="comment" placeholder="Write comment">
+<button class="btn btn-primary">Comment</button>
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

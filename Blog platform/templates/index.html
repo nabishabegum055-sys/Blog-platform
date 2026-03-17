@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="p-4 mb-4 bg-light rounded shadow">
+<h2>Welcome to Modern Blog</h2>
+<a href="/create" class="btn btn-primary">Create Post</a>
+</div>
+
+<div class="row">
+
+{% for post in posts %}
+
+<div class="col-md-4">
+<div class="card shadow mb-4">
+
+<img src="{{post.image}}" class="card-img-top">
+
+<div class="card-body">
+
+<h5>{{post.title}}</h5>
+<p>{{post.content[:100]}}...</p>
+
+<p>❤️ {{post.likes}}</p>
+
+<a href="/post/{{post.id}}" class="btn btn-primary btn-sm">Read</a>
+<a href="/like/{{post.id}}" class="btn btn-danger btn-sm">Like</a>
+<a href="/edit/{{post.id}}" class="btn btn-warning btn-sm">Edit</a>
+<a href="/delete/{{post.id}}" class="btn btn-dark btn-sm">Delete</a>
+
+</div>
+</div>
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
